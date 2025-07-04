@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  dictionary:
+    build: .
+    container_name: dictionary-app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./dictionary.db:/var/www/html/dictionary.db
+      - ./logs:/var/www/html/logs
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+      - APACHE_LOG_DIR=/var/log/apache2
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  nginx:
+    image: nginx:alpine
+    container_name: dictionary-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - dictionary
+    restart: unless-stopped
+    command: [nginx-debug, '-g', 'daemon off;']
+
+networks:
+  default:
+    name: dictionary-network
