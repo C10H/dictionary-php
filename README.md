@@ -2,6 +2,22 @@
 
 一个基于PHP和SQLite的智能英汉双向翻译系统，支持本地词典查询和百度翻译API集成。
 
+[![GitHub](https://img.shields.io/badge/GitHub-C10H/dictionary--php-blue?style=flat-square&logo=github)](https://github.com/C10H/dictionary-php)
+[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-c10h15n/dictionary--php-blue?style=flat-square&logo=docker)](https://hub.docker.com/r/c10h15n/dictionary-php)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+
+## 🐳 快速运行（Docker）
+
+```bash
+# 使用Docker运行
+docker run -p 8080:80 c10h15n/dictionary-php:latest
+
+# 或使用docker-compose
+docker-compose up -d
+```
+
+访问 http://localhost:8080 即可使用词典系统。
+
 ## 📋 功能特性
 
 - **智能语言检测**: 自动识别输入的中文或英文
@@ -22,10 +38,10 @@
 
 ### 安装步骤
 
-1. **克隆或下载项目**
+1. **克隆项目**
    ```bash
-   git clone <repository-url>
-   cd dictionary_php
+   git clone https://github.com/C10H/dictionary-php.git
+   cd dictionary-php
    ```
 
 2. **初始化数据库**
@@ -189,6 +205,8 @@ php test_report.php
 
 ## 🔗 相关链接
 
+- **项目仓库**: [GitHub - C10H/dictionary-php](https://github.com/C10H/dictionary-php)
+- **Docker镜像**: [Docker Hub - c10h15n/dictionary-php](https://hub.docker.com/r/c10h15n/dictionary-php)
 - [百度翻译API文档](https://fanyi-api.baidu.com/doc/21)
 - [PHP官方文档](https://www.php.net/manual/)
 - [SQLite文档](https://www.sqlite.org/docs.html)
