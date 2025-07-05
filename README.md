@@ -1,32 +1,78 @@
 # 英汉电子词典系统
 
-一个基于PHP和SQLite的智能英汉双向翻译系统，支持本地词典查询和百度翻译API集成。
+一个基于PHP的智能英汉双向翻译系统，支持多种部署环境和本地词典查询+百度翻译API集成。
 
 [![GitHub](https://img.shields.io/badge/GitHub-C10H/dictionary--php-blue?style=flat-square&logo=github)](https://github.com/C10H/dictionary-php)
 [![Docker Hub](https://img.shields.io/badge/Docker%20Hub-c10h15n/dictionary--php-blue?style=flat-square&logo=docker)](https://hub.docker.com/r/c10h15n/dictionary-php)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-## 🐳 快速运行（Docker）
+## 🚀 多环境部署支持
 
+### 🔥 LAMP环境（推荐生产使用）
+```bash
+# 一键LAMP部署
+sudo ./setup-lamp.sh
+
+# 访问地址
+http://localhost/dictionary/
+```
+
+### ⚡ LNMP环境（高性能）
+```bash
+# 一键LNMP部署
+sudo ./setup-lnmp.sh
+
+# 访问地址
+http://localhost/
+```
+
+### 🐳 Docker部署（容器化）
 ```bash
 # 使用Docker运行
 docker run -p 8080:80 c10h15n/dictionary-php:latest
 
 # 或使用docker-compose
 docker-compose up -d
+
+# 访问地址
+http://localhost:8080
 ```
 
-访问 http://localhost:8080 即可使用词典系统。
+### 🛠️ 开发环境
+```bash
+# PHP内置服务器
+php -S localhost:8000
+
+# 访问地址
+http://localhost:8000
+```
 
 ## 📋 功能特性
 
+### 🎯 核心功能
 - **智能语言检测**: 自动识别输入的中文或英文
 - **双重翻译来源**: 优先使用本地词典，备用百度翻译API
 - **管理员后台**: 完整的词典管理系统
 - **词条管理**: 支持增加、删除、修改词典内容
 - **用户认证**: 安全的管理员登录系统
 - **响应式设计**: 适配不同设备屏幕
-- **轻量级**: 使用SQLite数据库，无需复杂配置
+
+### 🏗️ 多环境支持
+- **LAMP环境**: Apache + MySQL + PHP (生产推荐)
+- **LNMP环境**: Nginx + MySQL + PHP (高性能)
+- **Docker部署**: 容器化部署，一键启动
+- **开发环境**: PHP内置服务器，快速测试
+
+### 💾 数据库支持
+- **SQLite**: 轻量级，无需配置，适合小型应用
+- **MySQL**: 企业级，高性能，支持并发访问
+- **一键切换**: 通过配置文件轻松切换数据库类型
+
+### 🎨 界面主题
+- **原版主题**: 简洁现代的蓝绿配色
+- **LAMP主题**: 🔥 火焰风格的红橙渐变
+- **LNMP主题**: ⚡ 现代感的蓝紫渐变
+- **Docker主题**: 🐳 容器化的清新设计
 
 ## 🚀 快速开始
 
@@ -177,12 +223,28 @@ php test_report.php
 
 ## 📝 更新日志
 
+### v2.0.0 (最新)
+- 🔥 完整LAMP环境支持
+- ⚡ 高性能LNMP环境支持
+- 💾 MySQL/SQLite双数据库支持
+- 🎨 多主题界面设计
+- 🛠️ 一键部署脚本
+- 📊 实时系统监控
+- 🔒 增强安全配置
+
 ### v1.0.0
 - 基础词典查询功能
 - 百度翻译API集成
 - 管理员后台系统
 - 词条管理功能
 - 响应式UI设计
+
+## 📚 详细文档
+
+- **[LAMP部署指南](LAMP_DEPLOYMENT.md)** - Apache环境完整部署文档
+- **[LNMP设置指南](LNMP_SETUP.md)** - Nginx环境配置说明
+- **[Docker部署文档](deployment.md)** - 容器化部署详细指南
+- **[项目部署总结](DEPLOYMENT_SUMMARY.md)** - 所有环境的快速概览
 
 ## 🤝 贡献指南
 
